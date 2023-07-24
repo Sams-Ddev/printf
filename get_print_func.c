@@ -8,7 +8,7 @@
  */
 
 
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
+int get_print_func(const char *s, int index)
 {
 	print_t pr[] = {
 		{"c", print_chr}, {"s", print_str},
