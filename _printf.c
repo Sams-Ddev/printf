@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 			else
-			{	function = get_print_func(format, i + 1);
+			{	function = (int (*)(va_list , char *, unsigned int))get_print_func(format, i + 1)
 				if (function == NULL)
 				{
 					if (format[i + 1] == ' ' && !format[i + 2])
