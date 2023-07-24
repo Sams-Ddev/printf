@@ -8,7 +8,7 @@
  * Return: index of buffer pointer.
  */
 
-unsigned int handl_buf(char *buffer, char c, unsigned int buffer_index)
+void handl_buf(char *buffer, char c, unsigned int buffer_index)
 {
 	if (buffer_index == 1024)
 	{
@@ -17,5 +17,4 @@ unsigned int handl_buf(char *buffer, char c, unsigned int buffer_index)
 	}
 	buffer[buffer_index] = c;
 	buffer_index++;
-	return (buffer_index);
 }
