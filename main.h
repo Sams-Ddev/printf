@@ -25,7 +25,7 @@ int _printf(const char *format, ...);
 int get_print_func(const char *format, int i);
 void handl_buf(char *buffer, char c, unsigned int ibuf);
 void print_buf(char *buffer, unsigned int ibuf);
-int print_char(va_list arguments, char *buffer, unsigned int buffer_index);
-
+int print_chr(va_list arguments, char *buffer, unsigned int buffer_index);
+int ev_print_func(const char *s, int index);
 
 #endif
