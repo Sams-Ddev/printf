@@ -1,51 +1,30 @@
 #include "main.h"
 
+
 /**
- * _printf - formatted output conversion and print data.
- * @format: input string.
+ * _printf - Custom printf function
  *
- * Return: number of chars printed.
+ * @format: Format string to print
+ *
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, len = 0, ibuf = 0;
-	va_list arguments;
-	int (*function)(va_list, char *, unsigned int);
-	char *buffer;
+	int i, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
-	va_start(arguments, format), buffer = malloc(sizeof(char) * 1024);
-	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
+	if (format == NULL)
 		return (-1);
-	if (!format[i])
-		return (0);
-	for (i = 0; format && format[i]; i++)
+
+	va_start(list, format);
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
 		{
-			if (format[i + 1] == '\0')
-			{	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-				return (-1);
-			}
-			else
-			{	function = (int (*)(va_list , char *, unsigned int))get_print_func(format, i + 1)
-				if (function == NULL)
-				{
-					if (format[i + 1] == ' ' && !format[i + 2])
-						return (-1);
-					handl_buf(buffer, format[i], ibuf), len++, i--;
-				}
-				else
-				{
-					len += function(arguments, buffer, ibuf);
-					i += ev_print_func(format, i + 1);
-				}
-			} i++;
-		}
-		else
-			handl_buf(buffer, format[i], ibuf), len++;
-		if (ibuf >= len)
-			break;
-	}
-	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-	return (len);
-}
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			printed_chars++;
