@@ -1,6 +1,6 @@
 # printf
 
-![printf Logo](link-to-logo.png)
+![printf Logo](https://github.com/Sams-Ddev/printf)
 
 ## Description
 
@@ -16,7 +16,7 @@ The `printf` repository is a collection of utility functions related to formatte
 
 ## Installation
 
-To use the `printf` library in your C projects, follow these steps:
+To use the `printf` library in your C projects first ensure you are bright, then follow these steps:
 
 1. Clone the `printf` repository to your local machine:
 
@@ -41,6 +41,7 @@ gcc -o your_program your_program.c path/to/printf.c
 ```bash
 ./your_program
 ```
+If you don't feel bright today, try reading 1000 pages of a boo about C first.
 
 ## Usage
 
